@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { X } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -39,60 +38,60 @@ export function InquiryDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <button className="flex flex-col items-center gap-2">
-          <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
+        <button className="flex flex-col items-center gap-2 group">
+          <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:bg-primary transition-all duration-300 transform group-hover:scale-105 shadow-lg">
             <img
               src="/lovable-uploads/92ff8eeb-a43d-4071-9c38-5ca2ff88df52.png"
               alt="Inquiry"
               className="w-8 h-8"
             />
           </div>
-          <span className="text-sm">Inquiry</span>
+          <span className="text-sm font-medium group-hover:text-primary transition-colors">Inquiry</span>
         </button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="text-2xl">Inquiry Form</DialogTitle>
+      <DialogContent className="sm:max-w-[425px] p-6">
+        <DialogHeader className="mb-6">
+          <DialogTitle className="text-2xl font-bold text-center">Send an Inquiry</DialogTitle>
         </DialogHeader>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-4">
-          <div className="space-y-2">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <div>
             <Input
-              placeholder="Name *"
+              placeholder="Full Name *"
               {...register("name", { required: true })}
-              className="bg-secondary/10"
+              className="bg-secondary/5 border-secondary/20 focus:border-primary h-12"
             />
           </div>
-          <div className="space-y-2">
+          <div>
             <Input
-              placeholder="Mobile number *"
+              placeholder="Mobile Number *"
               {...register("mobile", { required: true })}
-              className="bg-secondary/10"
+              className="bg-secondary/5 border-secondary/20 focus:border-primary h-12"
             />
           </div>
-          <div className="space-y-2">
+          <div>
             <Input
               type="email"
-              placeholder="Email address"
+              placeholder="Email Address"
               {...register("email")}
-              className="bg-secondary/10"
+              className="bg-secondary/5 border-secondary/20 focus:border-primary h-12"
             />
           </div>
-          <div className="space-y-2">
+          <div>
             <Input 
               placeholder="Subject" 
               {...register("subject")}
-              className="bg-secondary/10"
+              className="bg-secondary/5 border-secondary/20 focus:border-primary h-12"
             />
           </div>
-          <div className="space-y-2">
+          <div>
             <Textarea 
-              placeholder="Message" 
+              placeholder="Your Message" 
               {...register("message")}
-              className="bg-secondary/10 min-h-[100px]"
+              className="bg-secondary/5 border-secondary/20 focus:border-primary min-h-[120px] resize-none"
             />
           </div>
-          <Button type="submit" className="w-full">
-            Submit
+          <Button type="submit" className="w-full h-12 text-base font-medium hover:scale-[1.02] transition-transform">
+            Submit Inquiry
           </Button>
         </form>
       </DialogContent>
