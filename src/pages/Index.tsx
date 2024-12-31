@@ -1,4 +1,4 @@
-import { Phone, Mail, Scale } from "lucide-react";
+import { Phone, Mail, Scale, QrCode, UserPlus, MessageSquare } from "lucide-react";
 import { QrCodePopover } from "@/components/QrCodePopover";
 import { InquiryDialog } from "@/components/InquiryDialog";
 
@@ -27,7 +27,8 @@ const Index = () => {
 
       {/* Actions Grid */}
       <main className="flex-1 w-full max-w-screen-xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-3 gap-12 max-w-3xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12 max-w-3xl mx-auto">
+          {/* Call Button */}
           <a
             href="tel:+1234567890"
             className="flex flex-col items-center gap-4 group"
@@ -38,6 +39,7 @@ const Index = () => {
             <span className="text-lg font-medium text-[#1A1F2C]">Call</span>
           </a>
 
+          {/* WhatsApp Button */}
           <a
             href="https://wa.me/1234567890"
             className="flex flex-col items-center gap-4 group"
@@ -52,6 +54,7 @@ const Index = () => {
             <span className="text-lg font-medium text-[#1A1F2C]">WhatsApp</span>
           </a>
 
+          {/* Email Button */}
           <a
             href="mailto:contact@example.com"
             className="flex flex-col items-center gap-4 group"
@@ -61,6 +64,41 @@ const Index = () => {
             </div>
             <span className="text-lg font-medium text-[#1A1F2C]">Email</span>
           </a>
+
+          {/* QR Code Button */}
+          <div className="flex flex-col items-center gap-4 group">
+            <QrCodePopover>
+              <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-gray-100 group-hover:border-[#1A1F2C] transition-all duration-300 cursor-pointer">
+                <QrCode className="w-10 h-10 text-[#1A1F2C]" />
+              </div>
+              <span className="text-lg font-medium text-[#1A1F2C] cursor-pointer">QR Code</span>
+            </QrCodePopover>
+          </div>
+
+          {/* Save Contact Button */}
+          <a
+            href="#"
+            className="flex flex-col items-center gap-4 group"
+            onClick={(e) => {
+              e.preventDefault();
+              // Add save contact functionality here
+            }}
+          >
+            <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-gray-100 group-hover:border-[#1A1F2C] transition-all duration-300">
+              <UserPlus className="w-10 h-10 text-[#1A1F2C]" />
+            </div>
+            <span className="text-lg font-medium text-[#1A1F2C]">Save Contact</span>
+          </a>
+
+          {/* Inquiry Button */}
+          <div className="flex flex-col items-center gap-4 group">
+            <InquiryDialog>
+              <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-gray-100 group-hover:border-[#1A1F2C] transition-all duration-300 cursor-pointer">
+                <MessageSquare className="w-10 h-10 text-[#1A1F2C]" />
+              </div>
+              <span className="text-lg font-medium text-[#1A1F2C] cursor-pointer">Inquiry</span>
+            </InquiryDialog>
+          </div>
         </div>
       </main>
     </div>
