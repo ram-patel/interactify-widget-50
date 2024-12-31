@@ -6,6 +6,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,7 +38,7 @@ export function InquiryDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <Dialog.Trigger asChild>
+      <DialogTrigger asChild>
         <button className="flex flex-col items-center gap-2">
           <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
             <img
@@ -48,7 +49,7 @@ export function InquiryDialog() {
           </div>
           <span className="text-sm">Inquiry</span>
         </button>
-      </Dialog.Trigger>
+      </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="text-2xl">Inquiry Form</DialogTitle>
