@@ -8,18 +8,24 @@ import {
 } from "@/components/ui/dialog";
 import { QrCode } from "lucide-react";
 
-export function QrCodePopover() {
+interface QrCodePopoverProps {
+  children?: React.ReactNode;
+}
+
+export function QrCodePopover({ children }: QrCodePopoverProps) {
   const [open, setOpen] = useState(false);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <button className="flex flex-col items-center gap-2 group">
-          <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:bg-primary transition-all duration-300 transform group-hover:scale-105 shadow-lg">
-            <QrCode className="w-8 h-8" />
-          </div>
-          <span className="text-sm font-medium group-hover:text-primary transition-colors">QR Code</span>
-        </button>
+        {children || (
+          <button className="flex flex-col items-center gap-2 group">
+            <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:bg-primary transition-all duration-300 transform group-hover:scale-105 shadow-lg">
+              <QrCode className="w-8 h-8" />
+            </div>
+            <span className="text-sm font-medium group-hover:text-primary transition-colors">QR Code</span>
+          </button>
+        )}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] p-6">
         <DialogHeader className="mb-6">

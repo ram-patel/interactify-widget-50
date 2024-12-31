@@ -66,14 +66,14 @@ const Index = () => {
           </a>
 
           {/* QR Code Button */}
-          <div className="flex flex-col items-center gap-4 group">
-            <QrCodePopover>
-              <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-gray-100 group-hover:border-[#1A1F2C] transition-all duration-300 cursor-pointer">
+          <QrCodePopover>
+            <div className="flex flex-col items-center gap-4 group cursor-pointer">
+              <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-gray-100 group-hover:border-[#1A1F2C] transition-all duration-300">
                 <QrCode className="w-10 h-10 text-[#1A1F2C]" />
               </div>
-              <span className="text-lg font-medium text-[#1A1F2C] cursor-pointer">QR Code</span>
-            </QrCodePopover>
-          </div>
+              <span className="text-lg font-medium text-[#1A1F2C]">QR Code</span>
+            </div>
+          </QrCodePopover>
 
           {/* Save Contact Button */}
           <a
@@ -91,14 +91,14 @@ const Index = () => {
           </a>
 
           {/* Inquiry Button */}
-          <div className="flex flex-col items-center gap-4 group">
-            <InquiryDialog>
-              <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-gray-100 group-hover:border-[#1A1F2C] transition-all duration-300 cursor-pointer">
+          <InquiryDialog>
+            <div className="flex flex-col items-center gap-4 group cursor-pointer">
+              <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-gray-100 group-hover:border-[#1A1F2C] transition-all duration-300">
                 <MessageSquare className="w-10 h-10 text-[#1A1F2C]" />
               </div>
-              <span className="text-lg font-medium text-[#1A1F2C] cursor-pointer">Inquiry</span>
-            </InquiryDialog>
-          </div>
+              <span className="text-lg font-medium text-[#1A1F2C]">Inquiry</span>
+            </div>
+          </InquiryDialog>
         </div>
       </main>
     </div>

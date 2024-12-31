@@ -20,7 +20,11 @@ type FormData = {
   message: string;
 };
 
-export function InquiryDialog() {
+interface InquiryDialogProps {
+  children?: React.ReactNode;
+}
+
+export function InquiryDialog({ children }: InquiryDialogProps) {
   const [open, setOpen] = useState(false);
   const { toast } = useToast();
   const { register, handleSubmit, reset } = useForm<FormData>();
@@ -38,18 +42,20 @@ export function InquiryDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <button className="flex flex-col items-center gap-2 group">
-          <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:bg-primary transition-all duration-300 transform group-hover:scale-105 shadow-lg">
-            <img
-              src="/lovable-uploads/92ff8eeb-a43d-4071-9c38-5ca2ff88df52.png"
-              alt="Inquiry"
-              className="w-8 h-8"
-            />
-          </div>
-          <span className="text-sm font-medium group-hover:text-primary transition-colors">Inquiry</span>
-        </button>
+        {children || (
+          <button className="flex flex-col items-center gap-2 group">
+            <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:bg-primary transition-all duration-300 transform group-hover:scale-105 shadow-lg">
+              <img
+                src="/lovable-uploads/92ff8eeb-a43d-4071-9c38-5ca2ff88df52.png"
+                alt="Inquiry"
+                className="w-8 h-8"
+              />
+            </div>
+            <span className="text-sm font-medium group-hover:text-primary transition-colors">Inquiry</span>
+          </button>
+        )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] p-6">
+      <DialogContent className="sm:max-w-[425px] p-6 border-2 border-primary/10">
         <DialogHeader className="mb-6">
           <DialogTitle className="text-2xl font-bold text-center">Send an Inquiry</DialogTitle>
         </DialogHeader>
