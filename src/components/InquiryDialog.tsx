@@ -6,7 +6,6 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,7 +37,7 @@ export function InquiryDialog() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogTrigger asChild>
+      <Dialog.Trigger asChild>
         <button className="flex flex-col items-center gap-2">
           <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center hover:bg-primary transition-colors">
             <img
@@ -49,29 +48,24 @@ export function InquiryDialog() {
           </div>
           <span className="text-sm">Inquiry</span>
         </button>
-      </DialogTrigger>
+      </Dialog.Trigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle className="text-2xl">Inquiry Form</DialogTitle>
-          <Button
-            variant="ghost"
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100"
-            onClick={() => setOpen(false)}
-          >
-            <X className="h-4 w-4" />
-          </Button>
         </DialogHeader>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-4">
           <div className="space-y-2">
             <Input
               placeholder="Name *"
               {...register("name", { required: true })}
+              className="bg-secondary/10"
             />
           </div>
           <div className="space-y-2">
             <Input
               placeholder="Mobile number *"
               {...register("mobile", { required: true })}
+              className="bg-secondary/10"
             />
           </div>
           <div className="space-y-2">
@@ -79,13 +73,22 @@ export function InquiryDialog() {
               type="email"
               placeholder="Email address"
               {...register("email")}
+              className="bg-secondary/10"
             />
           </div>
           <div className="space-y-2">
-            <Input placeholder="Subject" {...register("subject")} />
+            <Input 
+              placeholder="Subject" 
+              {...register("subject")}
+              className="bg-secondary/10"
+            />
           </div>
           <div className="space-y-2">
-            <Textarea placeholder="Message" {...register("message")} />
+            <Textarea 
+              placeholder="Message" 
+              {...register("message")}
+              className="bg-secondary/10 min-h-[100px]"
+            />
           </div>
           <Button type="submit" className="w-full">
             Submit
