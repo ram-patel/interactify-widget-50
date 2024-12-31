@@ -44,18 +44,14 @@ export function InquiryDialog({ children }: InquiryDialogProps) {
       <DialogTrigger asChild>
         {children || (
           <button className="flex flex-col items-center gap-2 group">
-            <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center group-hover:bg-primary transition-all duration-300 transform group-hover:scale-105 shadow-lg">
-              <img
-                src="/lovable-uploads/92ff8eeb-a43d-4071-9c38-5ca2ff88df52.png"
-                alt="Inquiry"
-                className="w-8 h-8"
-              />
+            <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-lg border-2 border-gray-100 group-hover:border-[#1A1F2C] transition-all duration-300">
+              <MessageSquare className="w-10 h-10 text-[#1A1F2C]" />
             </div>
-            <span className="text-sm font-medium group-hover:text-primary transition-colors">Inquiry</span>
+            <span className="text-lg font-medium text-[#1A1F2C]">Inquiry</span>
           </button>
         )}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] p-6 border-2 border-primary/10">
+      <DialogContent className="sm:max-w-[425px] p-6">
         <DialogHeader className="mb-6">
           <DialogTitle className="text-2xl font-bold text-center">Send an Inquiry</DialogTitle>
         </DialogHeader>
@@ -64,14 +60,14 @@ export function InquiryDialog({ children }: InquiryDialogProps) {
             <Input
               placeholder="Full Name *"
               {...register("name", { required: true })}
-              className="bg-secondary/5 border-secondary/20 focus:border-primary h-12"
+              className="h-12 border-2 rounded-xl focus:border-[#1A1F2C] transition-colors"
             />
           </div>
           <div>
             <Input
               placeholder="Mobile Number *"
               {...register("mobile", { required: true })}
-              className="bg-secondary/5 border-secondary/20 focus:border-primary h-12"
+              className="h-12 border-2 rounded-xl focus:border-[#1A1F2C] transition-colors"
             />
           </div>
           <div>
@@ -79,24 +75,27 @@ export function InquiryDialog({ children }: InquiryDialogProps) {
               type="email"
               placeholder="Email Address"
               {...register("email")}
-              className="bg-secondary/5 border-secondary/20 focus:border-primary h-12"
+              className="h-12 border-2 rounded-xl focus:border-[#1A1F2C] transition-colors"
             />
           </div>
           <div>
             <Input 
               placeholder="Subject" 
               {...register("subject")}
-              className="bg-secondary/5 border-secondary/20 focus:border-primary h-12"
+              className="h-12 border-2 rounded-xl focus:border-[#1A1F2C] transition-colors"
             />
           </div>
           <div>
             <Textarea 
               placeholder="Your Message" 
               {...register("message")}
-              className="bg-secondary/5 border-secondary/20 focus:border-primary min-h-[120px] resize-none"
+              className="min-h-[120px] resize-none border-2 rounded-xl focus:border-[#1A1F2C] transition-colors"
             />
           </div>
-          <Button type="submit" className="w-full h-12 text-base font-medium hover:scale-[1.02] transition-transform">
+          <Button 
+            type="submit" 
+            className="w-full h-12 text-base font-medium bg-[#1A1F2C] hover:bg-[#1A1F2C]/90 rounded-xl"
+          >
             Submit Inquiry
           </Button>
         </form>
